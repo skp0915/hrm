@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("app.home").factory("userService",["$http",function(t){return{getList:function(e,r){return t.get(e,{params:r})}}}])}();

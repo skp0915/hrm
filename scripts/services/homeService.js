@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("app.home").factory("homeService",["$http",function(t){return{isLogined:function(n){return t.post(n)}}}])}();

@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("app.login").factory("loginService",["$http",function(n){return{login:function(t,o){return n.post(t,o)}}}])}();

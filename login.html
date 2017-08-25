@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app.login">
+<head>
+	<meta charset="UTF-8">
+	<title>云计划人人科技人事管理系统</title>
+	<link rel="stylesheet" type="text/css" href="./vendor/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./styles/login.css">
+	<script type="text/javascript" src="./vendor/js/angular.min.js"></script>
+	<script type="text/javascript" src="./vendor/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./vendor/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./scripts/app.login.js"></script>
+	<script type="text/javascript" src="./scripts/controllers/login.js"></script>
+	<script type="text/javascript" src="./scripts/services/loginService.js"></script>
+	<script type="text/javascript" src="./scripts/directives/checkField.js"></script>
+</head>
+<body>
+	<div class="login-container app" ng-controller="LoginController">
+		<div class="mgmt">
+			<h3>云计划人人科技后台管理中心</h3>
+			<form name="login_form" novalidate ng-submit="loginCheck()">
+				<div class="userName">
+					<label for="loginname">
+						<span>用户名：</span>
+						<input type="text" 
+						ng-model="user.loginname" 
+						id="loginname" 
+						name="loginname" 
+						data-toggle="popover"
+						data-content="用户名为6-20位的字母"
+						check-field
+						pattern="^[a-zA-Z]{6,20}$"
+						data-placement="top"/>
+					</label>
+				</div>
+				<div class="passWord">
+					<label for="psw">
+						<span>密码：</span>
+						<input type="password" 
+						id="psw" 
+						name="password" 
+						ng-model="user.password" 
+						check-field
+						data-content="密码只能是6-20位的字母或数字"
+						pattern="^[a-zA-Z0-9]{6,20}$"
+						data-placement="top" />
+					</label>
+				</div>
+				<button 
+					type="submit" 
+					class="btn btn-primary btn-block" 
+					ng-disabled="login_form.loginname.$pristine||login_form.password.$pristine||login_form.$invalid">
+					登录
+				</button>
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("app.login").directive("checkLoginname",[function(){return{require:"?ngModel",link:function(e,i,n,o){if(o){var t=/^[a-zA-Z]{6,20}$/;o.$parsers.unshift(function(e){return t.test(e)?($(i).popover("hide"),o.$setValidity("checkLoginname",!0),e):($(i).popover("show"),void o.$setValidity("checkLoginname",!1))})}}}}])}();

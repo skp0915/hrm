@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app.home">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="../vendor/css/bootstrap.min.css">
+	<script type="text/javascript" src="../vendor/js/angular.min.js"></script>
+	<script type="text/javascript" src="../vendor/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../vendor/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../scripts/app.home.js"></script>
+	<script type="text/javascript" src="../scripts/controllers/home.js"></script>
+	<script type="text/javascript" src="../scripts/services/homeService.js"></script>
+	<!-- 引入用户管理模块相关的js文件 -->
+	<script type="text/javascript" src="../scripts/services/userService.js"></script>
+</head>
+<body>
+	<div ng-controller="HomeController">
+		home页面
+		<div>
+			<table>
+				<tr ng-repeat="user in users track by user.id">
+					<td>{{user.id}}</td>
+					<td>{{user.loginname}}</td>
+					<td>{{user.password}}</td>
+					<td>{{user.status}}</td>
+					<td>{{user.createdate | date :'yyyy-MM-dd HH:mm:ss'}}</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<select ng-model="offset">
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+			</select>
+			<button type="button" ng-click="handlePage(-1)" class="btn btn-primary btn-sm">上一页</button>
+			&nbsp;
+			<button type="button" ng-click="handlePage(1)" class="btn btn-primary btn-sm">下一页</button>
+		</div>
+	</div>
+</body>
+</html>

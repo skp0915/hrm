@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("app.login").directive("checkField",[function(){return{scope:{pattern:"@"},require:"?ngModel",link:function(e,n,i,t){if(t){var o=new RegExp(e.pattern);t.$parsers.unshift(function(e){return o.test(e)?($(n).popover("hide"),t.$setValidity("checkLoginname",!0),e):($(n).popover("show"),void t.$setValidity("checkLoginname",!1))})}}}}])}();
